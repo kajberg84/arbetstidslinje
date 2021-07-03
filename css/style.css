@@ -1,0 +1,149 @@
+:root {
+  --first-clr: #ACC8E5;
+  --second-clr:#112A46;
+  --text-clr:#fafafa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: normal 1rem/1.5 'Arial', sans-serif;
+  background: var(--first-clr);
+  color: var(--text-clr);
+  overflow-x: hidden;
+  padding-bottom: 50px;
+}
+
+.main-header {
+  background-color: var(--second-clr);
+  padding: 4rem 0;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.3rem;
+}
+
+h3 i{
+  margin-right: 10px;
+}
+
+.timeline ul {
+  background: var(--first-clr);
+  padding: 50px 0;
+}
+
+/* Line */
+.time-li {
+  list-style: none;
+  position: relative;
+  width: 6px;
+  margin: 0 auto;
+  padding-top: 50px;
+  background: var(--text-clr);
+}
+
+/* boxes */
+.timetext-container {
+  position: relative;
+  bottom: 0;
+  width: 400px;
+  padding: 1rem;
+  background: var(--second-clr);
+  transition: all 0.5s ease-in-out;
+
+}
+
+/* right side boxes */
+.box-right {
+  border-radius: 20px 20px 20px 0;
+   left: 40px;
+ }
+
+ /* right side boxes */
+ .box-left {
+  border-radius: 20px 20px 0px 20px;
+  left: -434px;
+}
+
+/* Dots in middle of timeline */
+/* translateX needs to have same as moved left */
+.time-li:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 25px;
+  height: 25px;
+  background: var(--second-clr);
+  transform: translateX(-50%);
+  border-radius: 50%;
+  transition: background 0.5s ease-in-out;
+}
+
+/* base of the arrows */
+.timetext-container:before {
+  content: '';
+  position: absolute;
+  bottom: 5px; /* change pos of arrow*/
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+/* Right side arrows */
+.box-right:before {
+  left: -15px;
+  border-width: 6px 16px 8px 0;
+  border-color: transparent var(--second-clr) transparent transparent;
+}
+
+/* Left side arrows */
+.box-left:before {
+  right: -15px;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent var(--second-clr);
+}
+
+/* mediaqueries */
+@media(max-width:900px){
+  .timetext-container {
+    width: 250px;
+  }
+
+  .box-left {
+    left:-284px;
+  }
+}
+
+@media(max-width:600px){
+  .time-li{
+    margin-left: 20px;
+  }
+
+  .timetext-container {
+    width: calc(100vw - 90px);
+  }
+
+  .box-left {
+    left: 40px;
+  }
+  .box-left:before {
+    left: -15px;
+    border-width: 6px 16px 8px 0;
+    border-color: transparent var(--second-clr) transparent transparent;
+  }
+
+  .box-left {
+    border-radius: 20px 20px 20px 0;
+  }
+}
